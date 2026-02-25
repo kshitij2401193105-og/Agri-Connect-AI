@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { BASE_URL } from "@/lib/api";
 
 export default function FarmerLogin() {
   const [mobile, setMobile] = useState("");
@@ -14,7 +15,7 @@ export default function FarmerLogin() {
         return;
       }
 
-      const res = await fetch("http://127.0.0.1:8000/otp-login", {
+      const res = await fetch(`${BASE_URL}/otp-login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

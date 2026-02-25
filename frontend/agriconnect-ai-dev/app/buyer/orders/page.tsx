@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 interface Order {
   id: number;
@@ -15,7 +16,7 @@ export default function OrdersPage() {
   const [orders, setOrders] = useState<Order[]>([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/orders")
+    fetch(`${BASE_URL}/orders`)
       .then((r) => r.json())
       .then((data) => setOrders(data))
       .catch(() => setOrders([]));

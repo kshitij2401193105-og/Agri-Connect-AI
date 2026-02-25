@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 export default function DiseaseDetection() {
   const [file, setFile] = useState<File | null>(null);
@@ -17,7 +18,7 @@ export default function DiseaseDetection() {
     formData.append("file", file);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload-image", {
+      const res = await fetch(`${BASE_URL}/upload-image`, {
         method: "POST",
         body: formData,
       });

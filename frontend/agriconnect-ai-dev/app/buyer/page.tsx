@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 export default function BuyerMarketplace() {
   const [isPlacing, setIsPlacing] = useState(false);
@@ -29,7 +30,7 @@ export default function BuyerMarketplace() {
   const handleConnect = async (item: (typeof crops)[number]) => {
     try {
       setIsPlacing(true);
-      await fetch("http://127.0.0.1:8000/orders", {
+      await fetch(`${BASE_URL}/orders`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 export default function RegisterCrop() {
   const [farmerId, setFarmerId] = useState("");
@@ -17,7 +18,7 @@ export default function RegisterCrop() {
 
     try {
       setIsSubmitting(true);
-      const res = await fetch("http://127.0.0.1:8000/register-crop", {
+      const res = await fetch(`${BASE_URL}/register-crop`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

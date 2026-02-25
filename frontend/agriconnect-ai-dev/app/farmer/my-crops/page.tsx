@@ -1,11 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 export default function MyCrops() {
   const [crops, setCrops] = useState([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/farmer/crops")
+    fetch(`${BASE_URL}/farmer/crops`)
       .then((r) => r.json())
       .then((d) => setCrops(d.crops));
   }, []);

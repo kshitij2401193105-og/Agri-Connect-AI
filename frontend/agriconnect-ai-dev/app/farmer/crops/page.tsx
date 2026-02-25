@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 export default function CropHistory() {
   const [crops, setCrops] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/crops")
+    fetch(`${BASE_URL}/crops`)
       .then((res) => res.json())
       .then(setCrops);
   }, []);
@@ -19,7 +20,7 @@ export default function CropHistory() {
         {crops.map((c) => (
           <div key={c.id} className="bg-white p-3 rounded-xl shadow">
             <img
-              src={`http://127.0.0.1:8000/uploads/${c.filename}`}
+              src={`${BASE_URL}/uploads/${c.filename}`}
               className="rounded-lg h-40 w-full object-cover"
             />
             <p className="text-black mt-2 text-sm">{c.filename}</p>

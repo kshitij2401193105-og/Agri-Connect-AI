@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { BASE_URL } from "@/lib/api";
 
 export default function AgriGenie() {
   const [question, setQuestion] = useState("");
@@ -12,7 +13,7 @@ export default function AgriGenie() {
     setAnswer("Thinking... 🤖");
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/agri-genie", {
+      const res = await fetch(`${BASE_URL}/agri-genie`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
